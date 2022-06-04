@@ -17,10 +17,10 @@ require("randomForest")
 require("ranger")
 
 
-setwd( "~/buckets/b1/" )  #cambiar por la carpeta local
+setwd("C:\\Users\\juanp\\OneDrive\\Escritorio\\ECD\\MD")   #cambiar por la carpeta local
 
 #leo el dataset
-dataset  <- fread( "./datasets/paquete_premium.csv.gz", stringsAsFactors= TRUE)
+dataset  <- fread( "./datasets/paquete_premium.csv", stringsAsFactors= TRUE)
 
 #me quedo SOLO con los BAJA+2
 dataset  <- dataset[  clase_ternaria =="BAJA+2"  & foto_mes>=202001  & foto_mes<=202011, ]
@@ -60,7 +60,7 @@ hclust.rf  <- hclust( as.dist ( 1.0 - modelo$proximity),  #distancia = 1.0 - pro
 #primero, creo la carpeta donde van los resultados
 dir.create( "./exp/", showWarnings= FALSE )
 dir.create( "./exp/ST7610", showWarnings= FALSE )
-setwd( "~/buckets/b1/exp/ST7610" )
+setwd("C:\\Users\\juanp\\OneDrive\\Escritorio\\ECD\\MD\\labo\\exp\\ST7610" )
 
 
 #imprimo un pdf con la forma del cluster jerarquico
