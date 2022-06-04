@@ -325,7 +325,9 @@ gc()
 
 
 #Prepara todo la la Bayesian Optimization -------------------------------------
-apertura  <- parametrizar( PARAM[[ PARAM$algoritmo ]] )
+hiperparametros <- PARAM[[ PARAM$algoritmo ]]
+apertura  <- parametrizar( hiperparametros )
+
 param_fijos  <-  apertura$param_fijos
 
 
