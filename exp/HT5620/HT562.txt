@@ -1,2 +1,4 @@
 fecha	gamma	alpha	lambda	subsample	tree_method	grow_policy	max_bin	max_leaves	scale_pos_weight	eta	colsample_bytree	min_child_weight	max_depth	prob_corte	nrounds	ganancia	iteracion
 20220526 220919	0	0	0	1	auto	depthwise	256	0	1	0.3	1	1	6	0.0166666666666667	34	9639000	1
+20220529 233406	0	0	0	1	auto	depthwise	256	0	1	0.3	1	1	6	0.0166666666666667	34	9639000	2
+20220529 235145	0	0	0	1	auto	depthwise	256	0	1	0.3	1	1	6	0.0166666666666667	24	9224000	3

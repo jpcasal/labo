@@ -93,7 +93,7 @@ EnriquecerDataset  <- function( dataset , arch_destino )
   dataset[  , inv_total  := minversion1_pesos+minversion2]
   
   #CMR inversion total sobre saldo:
-  dataset[  , %ratio_inversiones_saldos  := inv_total / mcuentas_saldo ]
+  #dataset[  , %ratio_inversiones_saldos  := inv_total / mcuentas_saldo ]
   
   rowSums(x == 0)
   
