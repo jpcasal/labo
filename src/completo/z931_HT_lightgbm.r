@@ -345,7 +345,11 @@ if( file.exists( PARAM$files$output$BOlog ) )
 
 
 #Aqui comienza la configuracion de mlrMBO
-funcion_optimizar  <- ifelse( PARAM$crossvalidation, EstimarGanancia_lightgbmCV, EstimarGanancia_lightgbm )
+if( PARAM$crossvalidation ) {
+  funcion_optimizar  <- EstimarGanancia_lightgbmCV
+} else {
+  funcion_optimizar  <- EstimarGanancia_lightgbm
+}
 
 
 configureMlr( show.learner.output= FALSE)
