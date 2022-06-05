@@ -7,7 +7,7 @@ googlecloud:
 
 
 experiment:
-  script: "src/completo/z931_HT_lightgbm.r"
+  script: "src/completo/j931_HT_lightgbm.r"
   restart: TRUE
   name: "exp"
   requires:   [ "TS8210casal" ]
