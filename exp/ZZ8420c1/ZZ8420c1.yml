@@ -1,4 +1,7 @@
-#Final Model Creation
+#Aqui se hace Semillerio
+#Toma como entrada un comun  HT  = Hyperparameter Tuning
+# en la seccion param: ,  semillerio:  indica cuantas semillas se mezclan
+# genera archivo que luego se puede hibridar manualmente
 
 googlecloud:
   RAM:   128
@@ -7,13 +10,17 @@ googlecloud:
 
 
 experiment:
-  script: "src/completo/z991_ZZ_lightgbm_c1.r"
+  script: "src/completo/z999_ZZ_lightgbm_semillerio.r"
   restart: TRUE
   name: "exp"
-  requires:   [ "HT8310c1" ]
+  requires:   [ "HT8310" ]
 
 param:
-  modelos_qty:  3
+  semilla_primos:  102191 #poner aqui una semilla propia, sirve para crear los numeros primos que seran semillas
+
+  semillerio:  50     #nuevo parámetro, cantidad de semillas que se le cambia al lightgbm y se ensamblan
+                      #cuanto mas grande, mejor ganancia; pero demora mucho mas en correr
+  modelos_qty:  1
   clase_train_POS:    [ "BAJA+2", "BAJA+1" ]
   clase_test_POS:     [ "BAJA+2" ]
   KA_start:  9000
@@ -32,6 +39,7 @@ param:
       FMimportancia:  "FM_importance_"
       tb_predicciones: "tb_predicciones.txt"
       prefijo_pred:  "futuro_prediccion_"
+      prefijo_pred_semillerio: "futuro_prediccion_semillerio_"
       tb_submits:  "tb_submits.txt"
 
   const:
