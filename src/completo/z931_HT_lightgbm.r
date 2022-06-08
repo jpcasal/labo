@@ -27,6 +27,7 @@ parametrizar  <- function( lparam )
 
   for( param  in  names( lparam ) )
   {
+
     if( length( lparam[[ param ]] ) > 1 )
     {
       desde  <- as.numeric( lparam[[ param ]][[1]]  )
@@ -327,7 +328,6 @@ gc()
 #Prepara todo la la Bayesian Optimization -------------------------------------
 hiperparametros <- PARAM[[ PARAM$algoritmo ]]
 apertura  <- parametrizar( hiperparametros )
-
 param_fijos  <-  apertura$param_fijos
 
 
