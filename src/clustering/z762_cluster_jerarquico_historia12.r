@@ -80,7 +80,7 @@ plot( hclust.rf )
 dev.off()
 
 
-#genero 7 clusters
+#genero 6 clusters
 h <- 20
 distintos <- 0
 
