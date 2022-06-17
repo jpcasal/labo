@@ -8,7 +8,7 @@ experiment:
   script: "src/completo/j921_TS_generico.r"
   restart: FALSE
   name: "exp"
-  requires: [ "FE8120c2" ]
+  requires: [ "FE8120c5" ]
 
 
 param:
