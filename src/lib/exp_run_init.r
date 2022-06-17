@@ -55,4 +55,8 @@ mlflow_log_param( key= "SH_START",   value= format(Sys.time(), "%Y%m%d %H%M%S") 
 #grabo el id del experimento
 write_yaml( res,  file= "run.yml") 
 
+archivos  <- list.files( path = ".", pattern="yml" )
+for( archivo in archivos )  mlflow_log_artifact( path= archivo )
+
+
 quit( save= "no" )

@@ -100,7 +100,7 @@ exp_finalizar  <- function( suicide= TRUE)
   exp_mlflow_script_end()
 
   #cierro el run  de mlflow  en caso que exista
-  if( exists( "MLFLOW_LOG" ) )  mlflow_end_run( MLFLOW_LOG$run_uuid)
+  if( exists( "MLFLOW_LOG" ) )  mlflow_end_run( run_id= MLFLOW_LOG$run_uuid, status= "FINISHED" )
   
   #agrego al log.txt que el script R termino
   st  <- paste0( EXP$experiment$name, "\t",
@@ -558,16 +558,16 @@ exp_start  <- function( exp_name= NA, repo_dir= "~/labo/", exp_dir= "~/buckets/b
                      exp_name,
                      "  2>&1 | tee outfile \n" )
 
+  linea8  <- "cp  ~/log/*.txt  ./  \n"
 
-  linea8  <- paste0( "Rscript --vanilla ", 
+  linea9  <- paste0( "Rscript --vanilla ", 
                       experimento[["environment"]][["repo_dir"]], 
                       "src/lib/exp_run_end.r",
                       "\n"  )
   
-  linea9  <- "fecha1=$(date +\"%Y%m%d %H%M%S\") \n"
-  linea10  <- "echo \"$exp_name\"\"$tabulador\"\"$fecha1\"\"$tabulador\"\"SH_END\" >> log.txt \n"
+  linea10  <- "fecha1=$(date +\"%Y%m%d %H%M%S\") \n"
+  linea11  <- "echo \"$exp_name\"\"$tabulador\"\"$fecha1\"\"$tabulador\"\"SH_END\" >> log.txt \n"
 
-  linea11  <- "cp  ~/log/*.txt  ./  \n"
   #esta linea debe cambiarse por un rsync
   linea12  <- paste0( "find ./ ! -name \"*.gz\" ! -name . -exec cp -prt ",  shared_dir, "  {} +  \n")
 
@@ -581,8 +581,10 @@ exp_start  <- function( exp_name= NA, repo_dir= "~/labo/", exp_dir= "~/buckets/b
                       linea6,
                       linea7,
                       linea8,
-                      linea9, linea10, linea11, linea12, linea13, linea14, linea15, linea16 )
-                                                              
+                      linea9, 
+                      linea10, linea11, linea12, linea13, linea14, linea15, linea16 )
+
+
   shell_script  <- paste0( exp_name, ".sh" )
   cat( comando, 
        file= shell_script )
