@@ -224,6 +224,14 @@ for( i in  1:PARAM$modelos_qty )
           sep= "\t" )
 
 
+  tb_predicciones  <- rbind( tb_predicciones,
+                             list( nom_pred_semillerio, iteracion_bayesiana, ganancia ) )
+
+  fwrite( tb_predicciones,
+          file=  PARAM$files$output$tb_predicciones,
+          sep= "\t" )
+
+
   #ahora, a la prediccion de semillerio la corto en distintos umbrales y genero el archivo para Kaggle
   setorder( tb_prediccion_semillerio, -pred_acumulada )
 
