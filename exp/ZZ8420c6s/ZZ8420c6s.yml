@@ -13,7 +13,7 @@ experiment:
   script: "src/completo/z999_ZZ_lightgbm_semillerio.r"
   restart: TRUE
   name: "exp"
-  requires:   [ "HT8310c4" ]
+  requires:   [ "HT8310c6" ]
 
 param:
   semilla_primos:  102191 #poner aqui una semilla propia, sirve para crear los numeros primos que seran semillas
